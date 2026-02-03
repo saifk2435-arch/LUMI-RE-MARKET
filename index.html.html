@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMIÈRE MARKET — Premium Organic Groceries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #8b7355;
+            --accent: #c9a86a;
+            --gold: #d4af37;
+            --background: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e1d8;
+            --text: #2a2a2a;
+            --text-light: #6a6a6a;
+            --cream: #f5f0e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--cream);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .top-header {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .top-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .login-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--accent);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .login-btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(201, 168, 106, 0.3);
+        }
+
+        .cart-btn {
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .cart-count {
+            background: white;
+            color: var(--gold);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .main-nav {
+            padding: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0;
+            justify-content: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 1.3rem 2.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 60%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            background: rgba(255,255,255,0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Category Cards */
+        .categories-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 3rem 2rem;
+            border-radius: 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .category-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .category-count {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Search & Filter */
+        .controls {
+            padding: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1.1rem 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 0;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(201, 168, 106, 0.15);
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.8rem;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 2rem 0 5rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--gold);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, #f8f6f3, #f0ece5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5.5rem;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: var(--gold);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .add-to-cart-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* About & Contact Sections */
+        .page-section {
+            padding: 5rem 0;
+            min-height: 60vh;
+        }
+
+        .page-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .page-section p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 1.8rem;
+            max-width: 900px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 0;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .contact-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            right: -500px;
+            top: 0;
+            width: 500px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+            transition: right 0.4s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .close-cart:hover {
+            transform: rotate(90deg);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .cart-item:hover {
+            background: var(--cream);
+        }
+
+        .cart-item-icon {
+            font-size: 3.5rem;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .cart-item-price {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .qty-btn {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            width: 32px;
+            height: 32px;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .qty-display {
+            font-weight: 600;
+            min-width: 35px;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .remove-btn:hover {
+            color: #c9534d;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .empty-cart-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.2;
+        }
+
+        .cart-summary {
+            border-top: 2px solid var(--border);
+            padding: 2rem;
+            background: var(--cream);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .summary-row.total {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent);
+            margin-top: 1rem;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            color: white;
+            border: none;
+            padding: 1.3rem;
+            border-radius: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 0;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid var(--accent);
+        }
+
+        .modal-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--text);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .payment-method {
+            border: 2px solid var(--border);
+            padding: 1.2rem;
+            border-radius: 0;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method input {
+            display: none;
+        }
+
+        .payment-method.selected {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.3rem;
+            border-radius: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+        }
+
+        .order-summary-modal {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 0;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .success-icon {
+            font-size: 6rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hide sections */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--cream);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .category-filter {
+                justify-content: center;
+            }
+
+            .hero-features {
+                gap: 2rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="container">
+                <div class="top-header-content">
+                    <div class="logo" onclick="navigateTo('home')">
+                        <span class="logo-icon">✦</span>
+                        LUMIÈRE MARKET
+                    </div>
+                    <div class="header-actions">
+                        <button class="login-btn" id="loginBtn">
+                            <span id="userDisplay">Login</span>
+                        </button>
+                        <button class="cart-btn" id="cartToggle">
+                            Cart
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="navigateTo('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateTo('products')">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateTo('about')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateTo('contact')">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div class="page-content active" id="homePage">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="container">
+                    <h1>Curated Excellence<br>Delivered Daily</h1>
+                    <p class="hero-subtitle">Premium organic produce, artisan foods, and sustainable choices for the discerning palate</p>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <span class="feature-icon">✦</span>
+                            <span>€5 Premium Delivery</span>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="feature-icon">⚜</span>
+                            <span>Curated Selection</span>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="feature-icon">◇</span>
+                            <span>Certified Organic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Explore Our Collections</h2>
+                <p class="section-subtitle">Thoughtfully sourced from the finest purveyors</p>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="filterByMainCategory('vegetables')">
+                        <div class="category-icon">🥬</div>
+                        <h3 class="category-name">Fresh Vegetables</h3>
+                        <p class="category-count">18 premium selections</p>
+                    </div>
+                    <div class="category-card" onclick="filterByMainCategory('food')">
+                        <div class="category-icon">🧀</div>
+                        <h3 class="category-name">Artisan Foods</h3>
+                        <p class="category-count">25 gourmet items</p>
+                    </div>
+                    <div class="category-card" onclick="filterByMainCategory('drinks')">
+                        <div class="category-icon">☕</div>
+                        <h3 class="category-name">Fine Beverages</h3>
+                        <p class="category-count">15 curated drinks</p>
+                    </div>
+                    <div class="category-card" onclick="filterByMainCategory('meat')">
+                        <div class="category-icon">🥩</div>
+                        <h3 class="category-name">Premium Meats</h3>
+                        <p class="category-count">12 select cuts</p>
+                    </div>
+                    <div class="category-card" onclick="filterByMainCategory('fish')">
+                        <div class="category-icon">🐟</div>
+                        <h3 class="category-name">Fresh Seafood</h3>
+                        <p class="category-count">15 ocean offerings</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Page -->
+    <div class="page-content" id="productsPage">
+        <section class="products-section">
+            <div class="container">
+                <div class="controls">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search our collection...">
+                    </div>
+                    <div class="category-filter" id="categoryFilter">
+                        <button class="filter-btn active" data-category="all">All</button>
+                        <button class="filter-btn" data-category="vegetables">Vegetables</button>
+                        <button class="filter-btn" data-category="food">Foods</button>
+                        <button class="filter-btn" data-category="drinks">Beverages</button>
+                        <button class="filter-btn" data-category="meat">Meats</button>
+                        <button class="filter-btn" data-category="fish">Seafood</button>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div class="page-content" id="aboutPage">
+        <section class="page-section">
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>Welcome to Lumière Market, where luxury meets sustainability in the world of organic groceries. We are more than just a market—we are curators of exceptional quality, dedicated to bringing you the finest selection of premium, organic products.</p>
+                <p>Founded on the principles of excellence and environmental stewardship, Lumière Market partners exclusively with certified organic farms and artisan producers who share our commitment to quality and sustainability. Every item in our collection has been carefully selected for its superior taste, nutritional value, and ethical production methods.</p>
+                <p>Our mission is to transform everyday grocery shopping into an experience of refinement and conscious consumption. We believe that premium quality and environmental responsibility are not mutually exclusive, but rather, they enhance one another.</p>
+                <p>From farm to table, we maintain the highest standards at every step, ensuring that each product meets our exacting criteria for freshness, flavor, and purity. Our dedicated team works tirelessly to source the most exceptional ingredients from around the world and deliver them to your doorstep with care.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page-content" id="contactPage">
+        <section class="page-section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>We value your questions, feedback, and inquiries. Our concierge team is available to assist you with personalized service and expert guidance on all our premium offerings.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📍</div>
+                        <h3>Visit Our Showroom</h3>
+                        <p>123 Lumière Boulevard<br>Premium District, LD 12345</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📞</div>
+                        <h3>Concierge Line</h3>
+                        <p>+1 (555) 123-4567<br>Daily: 8AM - 10PM</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">✉️</div>
+                        <h3>Email Us</h3>
+                        <p>concierge@lumieremarket.com<br>Response within 4 hours</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem; max-width: 700px;">
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 2rem;">Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Selection</h2>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <div class="empty-cart-icon">🛒</div>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-summary" id="cartSummary" style="display: none;">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">€0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Premium Delivery:</span>
+                <span>€5.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total">€5.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>Welcome</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginName">Full Name</label>
+                    <input type="text" id="loginName" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <button type="submit" class="submit-btn">Enter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <h2>Checkout</h2>
+            
+            <div class="order-summary-modal">
+                <h3 style="margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">Order Summary</h3>
+                <div id="modalOrderSummary"></div>
+            </div>
+
+            <form id="checkoutForm">
+                <h3 style="margin-bottom: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">Delivery Information</h3>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+
+                <h3 style="margin: 2rem 0 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">Payment Method</h3>
+                
+                <div class="payment-methods">
+                    <label class="payment-method selected">
+                        <input type="radio" name="payment" value="card" checked>
+                        <div class="payment-icon">💳</div>
+                        <div>Credit Card</div>
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="paypal">
+                        <div class="payment-icon">🅿️</div>
+                        <div>PayPal</div>
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="cash">
+                        <div class="payment-icon">💵</div>
+                        <div>Cash Delivery</div>
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="bank">
+                        <div class="payment-icon">🏦</div>
+                        <div>Bank Transfer</div>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-message">
+                <div class="success-icon">✦</div>
+                <h2 style="font-family: 'Cormorant Garamond', serif;">Order Confirmed</h2>
+                <p style="margin-top: 1.5rem; color: var(--text-light);">Thank you for choosing Lumière Market. Your premium selection will be delivered with care.</p>
+                <p style="margin-top: 1rem; font-weight: 600;">Order ID: <span id="orderId"></span></p>
+                <button class="submit-btn" onclick="location.reload()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Expanded Product Data with more items
+        const products = [
+            // Vegetables (18 items)
+            { id: 1, name: "Organic Baby Spinach", mainCategory: "vegetables", category: "leafy", price: 4.50, unit: "250g", icon: "🥬", description: "Tender young spinach leaves, hand-picked at dawn", badge: "Organic" },
+            { id: 2, name: "Heirloom Tomatoes", mainCategory: "vegetables", category: "fruit-veg", price: 6.20, unit: "kg", icon: "🍅", description: "Heritage variety tomatoes bursting with flavor", badge: "Premium" },
+            { id: 3, name: "Rainbow Carrots", mainCategory: "vegetables", category: "root", price: 4.80, unit: "kg", icon: "🥕", description: "Colorful organic carrots, sweet and crisp", badge: "Organic" },
+            { id: 4, name: "Heritage Bell Peppers", mainCategory: "vegetables", category: "fruit-veg", price: 7.50, unit: "kg", icon: "🫑", description: "Multi-colored peppers from heritage seeds", badge: "Premium" },
+            { id: 5, name: "Purple Broccoli", mainCategory: "vegetables", category: "leafy", price: 5.90, unit: "head", icon: "🥦", description: "Rare purple sprouting broccoli", badge: "Exclusive" },
+            { id: 6, name: "Yukon Gold Potatoes", mainCategory: "vegetables", category: "root", price: 3.80, unit: "kg", icon: "🥔", description: "Creamy golden potatoes, perfect texture", badge: null },
+            { id: 7, name: "English Cucumber", mainCategory: "vegetables", category: "fruit-veg", price: 4.50, unit: "piece", icon: "🥒", description: "Long seedless cucumbers, crisp and sweet", badge: null },
+            { id: 8, name: "Butter Lettuce", mainCategory: "vegetables", category: "leafy", price: 3.80, unit: "head", icon: "🥬", description: "Delicate buttery soft lettuce leaves", badge: "Organic" },
+            { id: 9, name: "Sweet Vidalia Onions", mainCategory: "vegetables", category: "root", price: 3.50, unit: "kg", icon: "🧅", description: "Mild and naturally sweet onions", badge: null },
+            { id: 10, name: "Japanese Eggplant", mainCategory: "vegetables", category: "fruit-veg", price: 6.80, unit: "kg", icon: "🍆", description: "Tender Asian variety eggplants", badge: "Premium" },
+            { id: 11, name: "Tuscan Kale", mainCategory: "vegetables", category: "leafy", price: 4.80, unit: "bunch", icon: "🥬", description: "Italian heirloom kale, rich in nutrients", badge: "Organic" },
+            { id: 12, name: "Golden Beets", mainCategory: "vegetables", category: "root", price: 4.50, unit: "kg", icon: "🥔", description: "Sweet golden beets, less earthy taste", badge: "Organic" },
+            { id: 13, name: "Asparagus Spears", mainCategory: "vegetables", category: "specialty", price: 9.80, unit: "bunch", icon: "🌿", description: "Premium green asparagus, tender stalks", badge: "Premium" },
+            { id: 14, name: "Artichokes", mainCategory: "vegetables", category: "specialty", price: 8.50, unit: "each", icon: "🌿", description: "Fresh globe artichokes, meaty hearts", badge: null },
+            { id: 15, name: "Brussels Sprouts", mainCategory: "vegetables", category: "leafy", price: 5.20, unit: "kg", icon: "🥬", description: "Baby brussels sprouts on the stalk", badge: "Organic" },
+            { id: 16, name: "Fennel Bulb", mainCategory: "vegetables", category: "specialty", price: 4.80, unit: "bulb", icon: "🌿", description: "Crisp anise-flavored fennel", badge: null },
+            { id: 17, name: "Baby Zucchini", mainCategory: "vegetables", category: "fruit-veg", price: 5.50, unit: "kg", icon: "🥒", description: "Tender young zucchini, delicate flavor", badge: "Premium" },
+            { id: 18, name: "Purple Cabbage", mainCategory: "vegetables", category: "leafy", price: 3.50, unit: "head", icon: "🥬", description: "Vibrant purple cabbage, crunchy texture", badge: null },
+
+            // Food (25 items)
+            { id: 19, name: "Artisan Sourdough", mainCategory: "food", category: "bakery", price: 6.50, unit: "loaf", icon: "🍞", description: "Traditional sourdough with 48hr fermentation", badge: "Fresh" },
+            { id: 20, name: "Bronze Die Pasta", mainCategory: "food", category: "pantry", price: 5.80, unit: "500g", icon: "🍝", description: "Italian artisan pasta, rough texture", badge: "Premium" },
+            { id: 21, name: "Arborio Risotto Rice", mainCategory: "food", category: "pantry", price: 7.20, unit: "kg", icon: "🍚", description: "Premium Italian risotto rice", badge: "Premium" },
+            { id: 22, name: "Aged Gruyère", mainCategory: "food", category: "dairy", price: 12.50, unit: "200g", icon: "🧀", description: "12-month aged Swiss Gruyère", badge: "Exclusive" },
+            { id: 23, name: "Farm Fresh Eggs", mainCategory: "food", category: "dairy", price: 6.00, unit: "dozen", icon: "🥚", description: "Free-range organic eggs, orange yolks", badge: "Organic" },
+            { id: 24, name: "French Butter", mainCategory: "food", category: "dairy", price: 6.80, unit: "250g", icon: "🧈", description: "Cultured butter from Normandy", badge: "Premium" },
+            { id: 25, name: "Greek Yogurt", mainCategory: "food", category: "dairy", price: 5.20, unit: "500g", icon: "🥛", description: "Thick strained Greek yogurt", badge: null },
+            { id: 26, name: "Ancient Grain Granola", mainCategory: "food", category: "breakfast", price: 7.50, unit: "box", icon: "🥣", description: "House-made granola with superfoods", badge: "Organic" },
+            { id: 27, name: "Manuka Honey", mainCategory: "food", category: "pantry", price: 18.50, unit: "jar", icon: "🍯", description: "Certified Manuka honey from New Zealand", badge: "Exclusive" },
+            { id: 28, name: "Almond Butter", mainCategory: "food", category: "pantry", price: 9.20, unit: "jar", icon: "🥜", description: "Stone-ground organic almond butter", badge: "Organic" },
+            { id: 29, name: "Extra Virgin Olive Oil", mainCategory: "food", category: "pantry", price: 15.50, unit: "500ml", icon: "🫒", description: "First cold-press from Tuscany", badge: "Premium" },
+            { id: 30, name: "Dark Chocolate", mainCategory: "food", category: "snacks", price: 6.50, unit: "bar", icon: "🍫", description: "75% single-origin cacao", badge: "Premium" },
+            { id: 31, name: "Truffle Potato Chips", mainCategory: "food", category: "snacks", price: 5.00, unit: "bag", icon: "🍟", description: "Hand-cut chips with black truffle", badge: "Exclusive" },
+            { id: 32, name: "French Macarons", mainCategory: "food", category: "snacks", price: 12.80, unit: "box", icon: "🍪", description: "Assorted flavors, Parisian style", badge: "Fresh" },
+            { id: 33, name: "Artisan Trail Mix", mainCategory: "food", category: "snacks", price: 8.00, unit: "bag", icon: "🥜", description: "Premium nuts and dried fruits", badge: "Organic" },
+            { id: 34, name: "Balsamic Vinegar", mainCategory: "food", category: "pantry", price: 14.50, unit: "bottle", icon: "🫒", description: "Aged balsamic from Modena", badge: "Premium" },
+            { id: 35, name: "Quinoa Blend", mainCategory: "food", category: "pantry", price: 6.80, unit: "500g", icon: "🌾", description: "Tri-color organic quinoa", badge: "Organic" },
+            { id: 36, name: "Sea Salt Collection", mainCategory: "food", category: "pantry", price: 11.50, unit: "set", icon: "🧂", description: "Fleur de sel and smoked salts", badge: "Premium" },
+            { id: 37, name: "Truffle Oil", mainCategory: "food", category: "pantry", price: 19.80, unit: "bottle", icon: "🫒", description: "White truffle infused olive oil", badge: "Exclusive" },
+            { id: 38, name: "Organic Jam Selection", mainCategory: "food", category: "pantry", price: 8.50, unit: "jar", icon: "🍓", description: "Small-batch artisan preserves", badge: "Organic" },
+            { id: 39, name: "Aged Parmesan", mainCategory: "food", category: "dairy", price: 16.50, unit: "250g", icon: "🧀", description: "36-month Parmigiano Reggiano", badge: "Exclusive" },
+            { id: 40, name: "Croissants", mainCategory: "food", category: "bakery", price: 8.50, unit: "pack of 4", icon: "🥐", description: "French butter croissants, flaky layers", badge: "Fresh" },
+            { id: 41, name: "Smoked Salmon", mainCategory: "food", category: "specialty", price: 18.50, unit: "200g", icon: "🐟", description: "Scottish cold-smoked salmon", badge: "Premium" },
+            { id: 42, name: "Acai Bowl Mix", mainCategory: "food", category: "breakfast", price: 9.80, unit: "pack", icon: "🥣", description: "Superfood smoothie bowl blend", badge: "Organic" },
+            { id: 43, name: "Pistachios", mainCategory: "food", category: "snacks", price: 12.50, unit: "bag", icon: "🥜", description: "Roasted Sicilian pistachios", badge: "Premium" },
+
+            // Drinks (15 items)
+            { id: 44, name: "Fresh Orange Juice", mainCategory: "drinks", category: "juice", price: 6.50, unit: "liter", icon: "🍊", description: "Cold-pressed Valencia oranges", badge: "Fresh" },
+            { id: 45, name: "Green Detox Juice", mainCategory: "drinks", category: "juice", price: 7.20, unit: "bottle", icon: "🥬", description: "Kale, apple, cucumber, lemon blend", badge: "Organic" },
+            { id: 46, name: "Sparkling Water", mainCategory: "drinks", category: "water", price: 2.50, unit: "bottle", icon: "💧", description: "Natural spring water with minerals", badge: null },
+            { id: 47, name: "Single Origin Coffee", mainCategory: "drinks", category: "hot", price: 16.50, unit: "250g", icon: "☕", description: "Ethiopian Yirgacheffe, light roast", badge: "Premium" },
+            { id: 48, name: "Matcha Tea", mainCategory: "drinks", category: "hot", price: 18.50, unit: "tin", icon: "🍵", description: "Ceremonial grade Japanese matcha", badge: "Exclusive" },
+            { id: 49, name: "Organic Whole Milk", mainCategory: "drinks", category: "dairy", price: 4.80, unit: "liter", icon: "🥛", description: "Grass-fed organic milk", badge: "Organic" },
+            { id: 50, name: "Kombucha", mainCategory: "drinks", category: "fermented", price: 5.50, unit: "bottle", icon: "🫙", description: "Probiotic ginger lemon kombucha", badge: "Organic" },
+            { id: 51, name: "Coconut Water", mainCategory: "drinks", category: "water", price: 4.20, unit: "bottle", icon: "🥥", description: "Pure coconut water, no additives", badge: null },
+            { id: 52, name: "Protein Smoothie", mainCategory: "drinks", category: "juice", price: 7.50, unit: "bottle", icon: "🥤", description: "Plant-based protein berry smoothie", badge: "Organic" },
+            { id: 53, name: "Fresh Lemonade", mainCategory: "drinks", category: "juice", price: 5.80, unit: "bottle", icon: "🍋", description: "Organic lemons with honey", badge: "Fresh" },
+            { id: 54, name: "Cold Brew Coffee", mainCategory: "drinks", category: "coffee", price: 6.50, unit: "bottle", icon: "☕", description: "Smooth 12-hour cold brew", badge: "Premium" },
+            { id: 55, name: "Herbal Tea Collection", mainCategory: "drinks", category: "hot", price: 12.50, unit: "box", icon: "🍵", description: "Curated selection of 20 teas", badge: "Premium" },
+            { id: 56, name: "Almond Milk", mainCategory: "drinks", category: "plant", price: 5.20, unit: "liter", icon: "🥛", description: "Unsweetened organic almond milk", badge: "Organic" },
+            { id: 57, name: "Beetroot Juice", mainCategory: "drinks", category: "juice", price: 6.80, unit: "bottle", icon: "🥤", description: "Cold-pressed beet and ginger", badge: "Organic" },
+            { id: 58, name: "Iced Tea", mainCategory: "drinks", category: "tea", price: 4.50, unit: "bottle", icon: "🍵", description: "Organic green tea with mint", badge: "Organic" },
+
+            // Meat (12 items)
+            { id: 59, name: "Organic Chicken Breast", mainCategory: "meat", category: "poultry", price: 14.50, unit: "kg", icon: "🍗", description: "Free-range organic chicken, tender cuts", badge: "Organic" },
+            { id: 60, name: "Grass-Fed Beef", mainCategory: "meat", category: "beef", price: 18.80, unit: "kg", icon: "🥩", description: "100% grass-fed ground beef, lean", badge: "Premium" },
+            { id: 61, name: "Heritage Pork Chops", mainCategory: "meat", category: "pork", price: 15.50, unit: "kg", icon: "🥓", description: "Thick-cut chops from heritage breeds", badge: "Premium" },
+            { id: 62, name: "Applewood Smoked Bacon", mainCategory: "meat", category: "pork", price: 10.20, unit: "pack", icon: "🥓", description: "Artisan cured and smoked bacon", badge: "Premium" },
+            { id: 63, name: "Wagyu Beef Steak", mainCategory: "meat", category: "beef", price: 35.50, unit: "kg", icon: "🥩", description: "Premium marbled Wagyu ribeye", badge: "Exclusive" },
+            { id: 64, name: "Turkey Crown", mainCategory: "meat", category: "poultry", price: 16.20, unit: "kg", icon: "🦃", description: "Free-range turkey breast crown", badge: "Premium" },
+            { id: 65, name: "Lamb Rack", mainCategory: "meat", category: "lamb", price: 28.50, unit: "kg", icon: "🍖", description: "New Zealand lamb, French-trimmed", badge: "Exclusive" },
+            { id: 66, name: "Chorizo Sausage", mainCategory: "meat", category: "processed", price: 9.80, unit: "pack", icon: "🌭", description: "Spanish-style spicy chorizo", badge: "Premium" },
+            { id: 67, name: "Duck Breast", mainCategory: "meat", category: "poultry", price: 22.50, unit: "kg", icon: "🦆", description: "Magret duck breast, rich flavor", badge: "Premium" },
+            { id: 68, name: "Veal Cutlets", mainCategory: "meat", category: "specialty", price: 24.80, unit: "kg", icon: "🥩", description: "Tender milk-fed veal cutlets", badge: "Premium" },
+            { id: 69, name: "Prosciutto", mainCategory: "meat", category: "cured", price: 18.50, unit: "200g", icon: "🥓", description: "Italian aged prosciutto di Parma", badge: "Exclusive" },
+            { id: 70, name: "Venison Steak", mainCategory: "meat", category: "game", price: 32.50, unit: "kg", icon: "🦌", description: "Wild venison, lean and flavorful", badge: "Exclusive" },
+
+            // Fish & Seafood (15 items)
+            { id: 71, name: "Wild Salmon Fillet", mainCategory: "fish", category: "fresh", price: 24.50, unit: "kg", icon: "🐟", description: "Alaskan wild-caught king salmon", badge: "Premium" },
+            { id: 72, name: "Sashimi Tuna", mainCategory: "fish", category: "fresh", price: 28.20, unit: "kg", icon: "🐟", description: "Sushi-grade yellowfin tuna loin", badge: "Exclusive" },
+            { id: 73, name: "Jumbo Shrimp", mainCategory: "fish", category: "seafood", price: 22.80, unit: "kg", icon: "🦐", description: "Wild-caught jumbo prawns", badge: "Premium" },
+            { id: 74, name: "Atlantic Cod", mainCategory: "fish", category: "fresh", price: 18.50, unit: "kg", icon: "🐟", description: "Sustainably caught cod fillet", badge: "Premium" },
+            { id: 75, name: "Premium Tuna Can", mainCategory: "fish", category: "canned", price: 5.50, unit: "can", icon: "🥫", description: "Line-caught tuna in olive oil", badge: "Premium" },
+            { id: 76, name: "Wild Salmon Can", mainCategory: "fish", category: "canned", price: 6.20, unit: "can", icon: "🥫", description: "Alaskan pink salmon, boneless", badge: "Premium" },
+            { id: 77, name: "Sardines in Oil", mainCategory: "fish", category: "canned", price: 4.80, unit: "can", icon: "🥫", description: "Portuguese sardines, hand-packed", badge: null },
+            { id: 78, name: "Fresh Mussels", mainCategory: "fish", category: "seafood", price: 12.50, unit: "kg", icon: "🦪", description: "Rope-grown fresh mussels", badge: "Fresh" },
+            { id: 79, name: "Calamari Rings", mainCategory: "fish", category: "seafood", price: 16.20, unit: "kg", icon: "🦑", description: "Tender cleaned squid rings", badge: "Fresh" },
+            { id: 80, name: "King Crab Legs", mainCategory: "fish", category: "seafood", price: 42.50, unit: "kg", icon: "🦀", description: "Alaskan king crab, sweet meat", badge: "Exclusive" },
+            { id: 81, name: "Sea Bass Fillet", mainCategory: "fish", category: "fresh", price: 26.50, unit: "kg", icon: "🐟", description: "Mediterranean sea bass, delicate", badge: "Premium" },
+            { id: 82, name: "Oysters", mainCategory: "fish", category: "seafood", price: 18.50, unit: "dozen", icon: "🦪", description: "Fresh Pacific oysters on ice", badge: "Fresh" },
+            { id: 83, name: "Scallops", mainCategory: "fish", category: "seafood", price: 32.50, unit: "kg", icon: "🦪", description: "Dry-pack jumbo sea scallops", badge: "Premium" },
+            { id: 84, name: "Lobster Tail", mainCategory: "fish", category: "seafood", price: 48.50, unit: "kg", icon: "🦞", description: "Cold water lobster tails", badge: "Exclusive" },
+            { id: 85, name: "Smoked Mackerel", mainCategory: "fish", category: "canned", price: 7.50, unit: "pack", icon: "🐟", description: "Oak-smoked mackerel fillets", badge: "Premium" }
+        ];
+
+        // State
+        let cart = [];
+        let currentFilter = 'all';
+        let currentUser = null;
+        const SHIPPING_COST = 5.00;
+
+        // DOM Elements
+        const productsGrid = document.getElementById('productsGrid');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartToggle = document.getElementById('cartToggle');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartSummary = document.getElementById('cartSummary');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const successModal = document.getElementById('successModal');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        // Initialize
+        function init() {
+            renderProducts(products);
+            addEventListeners();
+        }
+
+        // Navigation
+        function navigateTo(page) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            if(event && event.target) event.target.classList.add('active');
+
+            document.querySelectorAll('.page-content').forEach(content => content.classList.remove('active'));
+
+            if (page === 'home') {
+                document.getElementById('homePage').classList.add('active');
+            } else if (page === 'products') {
+                document.getElementById('productsPage').classList.add('active');
+            } else if (page === 'about') {
+                document.getElementById('aboutPage').classList.add('active');
+            } else if (page === 'contact') {
+                document.getElementById('contactPage').classList.add('active');
+            }
+
+            navMenu.classList.remove('active');
+        }
+
+        function filterByMainCategory(category) {
+            navigateTo('products');
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.nav-link')[1].classList.add('active');
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.querySelector(`[data-category="${category}"]`);
+            if(btn) btn.classList.add('active');
+            
+            currentFilter = category;
+            const filtered = products.filter(p => p.mainCategory === category);
+            renderProducts(filtered);
+        }
+
+        // Render Products
+        function renderProducts(productList) {
+            productsGrid.innerHTML = productList.map(product => `
+                <div class="product-card" onclick="addToCart(${product.id})">
+                    <div class="product-image">
+                        <span style="font-size: 5.5rem;">${product.icon}</span>
+                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.mainCategory}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-footer">
+                            <div>
+                                <span class="product-price">€${product.price.toFixed(2)}</span>
+                                <span class="price-unit">/${product.unit}</span>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add to Cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCart();
+            cartSidebar.classList.add('active');
+        }
+
+        // Update Cart
+        function updateCart() {
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-icon">${item.icon}</div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">€${item.price.toFixed(2)} / ${item.unit}</div>
+                        <div class="cart-item-controls">
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">−</button>
+                            <span class="qty-display">${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + SHIPPING_COST;
+
+            document.getElementById('subtotal').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('total').textContent = `€${total.toFixed(2)}`;
+            cartSummary.style.display = 'block';
+        }
+
+        // Update Quantity
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        // Remove from Cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        // Search
+        function handleSearch(query) {
+            const filtered = products.filter(product => 
+                product.name.toLowerCase().includes(query.toLowerCase()) ||
+                product.description.toLowerCase().includes(query.toLowerCase())
+            );
+            renderProducts(currentFilter === 'all' ? filtered : filtered.filter(p => p.mainCategory === currentFilter));
+        }
+
+        // Filter by Category
+        function filterByCategory(category) {
+            currentFilter = category;
+            const filtered = category === 'all' ? products : products.filter(p => p.mainCategory === category);
+            const searchQuery = searchInput.value;
+            if (searchQuery) {
+                handleSearch(searchQuery);
+            } else {
+                renderProducts(filtered);
+            }
+        }
+
+        // Event Listeners
+        function addEventListeners() {
+            cartToggle.addEventListener('click', () => cartSidebar.classList.add('active'));
+            closeCart.addEventListener('click', () => cartSidebar.classList.remove('active'));
+
+            searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+
+            categoryFilter.addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    filterByCategory(e.target.dataset.category);
+                }
+            });
+
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length > 0) {
+                    showCheckoutModal();
+                }
+            });
+
+            loginBtn.addEventListener('click', () => {
+                if (!currentUser) {
+                    loginModal.classList.add('active');
+                } else {
+                    currentUser = null;
+                    document.getElementById('userDisplay').textContent = 'Login';
+                }
+            });
+
+            [loginModal, checkoutModal].forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                currentUser = {
+                    name: document.getElementById('loginName').value,
+                    email: document.getElementById('loginEmail').value
+                };
+                document.getElementById('userDisplay').textContent = currentUser.name.split(' ')[0];
+                loginModal.classList.remove('active');
+                document.getElementById('loginForm').reset();
+            });
+
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    this.querySelector('input').checked = true;
+                });
+            });
+
+            document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                placeOrder();
+            });
+
+            document.getElementById('contactForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! Our concierge team will respond shortly.');
+                e.target.reset();
+            });
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Show Checkout Modal
+        function showCheckoutModal() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const total = subtotal + SHIPPING_COST;
+
+            document.getElementById('modalOrderSummary').innerHTML = `
+                ${cart.map(item => `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>${item.name} × ${item.quantity}</span>
+                        <span>€${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `).join('')}
+                <div style="display: flex; justify-content: space-between; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--border);">
+                    <span>Subtotal:</span>
+                    <span>€${subtotal.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.3rem;">
+                    <span>Delivery:</span>
+                    <span>€${SHIPPING_COST.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-weight: 700; font-size: 1.2rem; color: var(--primary);">
+                    <span>Total:</span>
+                    <span>€${total.toFixed(2)}</span>
+                </div>
+            `;
+
+            if (currentUser) {
+                document.getElementById('fullName').value = currentUser.name;
+                document.getElementById('email').value = currentUser.email;
+            }
+
+            checkoutModal.classList.add('active');
+        }
+
+        // Place Order
+        function placeOrder() {
+            const orderData = {
+                customer: {
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value
+                },
+                items: cart,
+                payment: document.querySelector('input[name="payment"]:checked').value,
+                subtotal: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                shipping: SHIPPING_COST,
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + SHIPPING_COST,
+                orderDate: new Date().toISOString()
+            };
+
+            const orderId = 'LM' + Date.now().toString().slice(-8);
+            document.getElementById('orderId').textContent = orderId;
+
+            console.log('Order placed:', orderData);
+
+            checkoutModal.classList.remove('active');
+            successModal.classList.add('active');
+
+            cart = [];
+            updateCart();
+            cartSidebar.classList.remove('active');
+            document.getElementById('checkoutForm').reset();
+        }
+
+        // Initialize app
+        init();
+    </script>
+</body>
+</html>
